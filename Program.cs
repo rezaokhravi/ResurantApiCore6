@@ -14,6 +14,7 @@ internal class Program
         builder.Services.AddScoped<DBContext>();
         builder.Services.AddScoped<ResponseResult>();
         builder.Services.AddScoped<IResturant,ResturantService>();
+        builder.Services.AddScoped<IFood,FoodService>();
 
 var app = builder.Build();
 

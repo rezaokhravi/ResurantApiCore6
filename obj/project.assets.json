@@ -1859,23 +1859,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\R.Okhravi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\r.okhravi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\AspCore\\Core6\\Core6.csproj",
+      "projectUniqueName": "d:\\projects\\ResurantApiCore6\\Core6.csproj",
       "projectName": "Core6",
-      "projectPath": "E:\\Projects\\AspCore\\Core6\\Core6.csproj",
-      "packagesPath": "C:\\Users\\R.Okhravi\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\AspCore\\Core6\\obj\\",
+      "projectPath": "d:\\projects\\ResurantApiCore6\\Core6.csproj",
+      "packagesPath": "C:\\Users\\r.okhravi\\.nuget\\packages\\",
+      "outputPath": "d:\\projects\\ResurantApiCore6\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\R.Okhravi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\r.okhravi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1883,7 +1879,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "D:\\ProgramData\\Microsoft\\VisualStudio\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1931,7 +1926,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Core6.Models.Services {
     public class ResturantService : IResturant {
         private readonly DBContext _context;
-        public ResturantService (DBContext context) {
+        private readonly ILogger<ResturantService> _logger;
+        public ResturantService (DBContext context,ILogger<ResturantService> logger) {
             _context = context;
         }
         public async Task<ResturantListDtos> Delete (Resturants resturant) {
@@ -23,16 +24,16 @@ namespace Core6.Models.Services {
             };
         }
 
-        public async Task<ResturantListDtos> DeleteById (int resturantId) {
+        public async Task<ResturantListDtos> DeleteById (long resturantId) {
             return await Delete (GetByIDPrivate (resturantId));
         }
 
-        private Resturants GetByIDPrivate (int resturantId) {
+        private Resturants GetByIDPrivate (long resturantId) {
             return _context.Resturants.SingleOrDefault (item => item.ID == resturantId);
-            }
+        }
 
-        public ResturantListDtos GetByID (int resturantId) {
-            var data = _context.Resturants.SingleOrDefault (item => item.ID == resturantId);
+        public ResturantListDtos GetByID (long resturantId) {
+            var data = _context.Resturants.SingleOrDefault(item => item.ID == resturantId);
             return new ResturantListDtos () {
                 ID = data.ID,
                     TITLE = data.TITLE,

@@ -37,6 +37,7 @@ public class FoodController : Controller {
     [HttpPost]
     public async Task<IActionResult> Insert ([FromBody] Foods food) {
         try {
+            _logger.LogError($"Insert::::{food.PRICE}");
             var data = await _food.Insert (food);
             _result.IsSucess = true;
             _result.StatusCode = 200;
@@ -76,9 +77,29 @@ public class FoodController : Controller {
 
     
      [HttpPost]
-    public async Task<IActionResult> DeleteById([FromBody] int foodId) {
+    public async Task<IActionResult> DeleteById([FromBody] int food_id) {
         try {
-            var data = await _food.DeleteById(foodId);
+            var data = await _food.DeleteById(food_id);
+            _result.IsSucess = true;
+            _result.StatusCode = 200;
+            _result.Message = "عملیات با موفقیت انجام شد";
+            _result.Error = null;
+            _result.Data = data;
+            return Ok (_result);
+        } catch (Exception ex) {
+            _result.IsSucess = false;
+            _result.StatusCode = 500;
+            _result.Error = ex.Message;
+            _result.Message = "عملیات با خطا مواجه شد";
+            _result.Data = null;
+            return Ok (_result);
+        }
+    }
+
+      [HttpPost]
+    public IActionResult GetById([FromBody] long food_id) {
+        try {
+            var data = _food.GetByID(food_id);
             _result.IsSucess = true;
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";

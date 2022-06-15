@@ -9,8 +9,8 @@ namespace Core6.Models.Interfaces
          Task<FoodListDtos> Insert(Foods food);
          Task<FoodListDtos> Update(Foods food);
          Task<FoodListDtos> Delete(Foods food);
-         FoodListDtos GetByID(int foodId);
-         Task<FoodListDtos> DeleteById(int foodId);
+         FoodListDtos GetByID(long foodId);
+         Task<FoodListDtos> DeleteById(long foodId);
 
     }
 }

@@ -76,9 +76,9 @@ public class ResturantController : Controller {
 
     
      [HttpPost]
-    public async Task<IActionResult> DeleteById([FromBody] int resturantId) {
+    public async Task<IActionResult> DeleteById([FromBody] long resturant_id) {
         try {
-            var data = await _resturant.DeleteById(resturantId);
+            var data = await _resturant.DeleteById(resturant_id);
             _result.IsSucess = true;
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
@@ -95,4 +95,23 @@ public class ResturantController : Controller {
         }
     }
 
+  [HttpPost]
+    public IActionResult GetById([FromBody] long resturant_id) {
+        try {
+            var data = _resturant.GetByID(resturant_id);
+            _result.IsSucess = true;
+            _result.StatusCode = 200;
+            _result.Message = "عملیات با موفقیت انجام شد";
+            _result.Error = null;
+            _result.Data = data;
+            return Ok (_result);
+        } catch (Exception ex) {
+            _result.IsSucess = false;
+            _result.StatusCode = 500;
+            _result.Error = ex.Message;
+            _result.Message = "عملیات با خطا مواجه شد";
+            _result.Data = null;
+            return Ok (_result);
+        }
+    }
 }
