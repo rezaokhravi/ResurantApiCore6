@@ -128,3 +128,9 @@ D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.MvcApplicationPartsAssemblyI
 D:\projects\ResurantApiCore6\bin\Debug\net6.0\Core6.xml
 D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.xml
 D:\projects\ResurantApiCore6\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

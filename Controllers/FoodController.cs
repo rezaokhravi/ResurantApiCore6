@@ -1,10 +1,13 @@
-﻿using Core6.Models.Entites;
+﻿using System.Net;
+using Core6.Models.Entites;
 using Core6.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ResurantApiCore6.Models.Dtos;
 
 namespace Core6.Controllers;
 
+[Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]
 public class FoodController : Controller

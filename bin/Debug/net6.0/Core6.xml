@@ -4,6 +4,27 @@
         <name>Core6</name>
     </assembly>
     <members>
+        <member name="M:Core6.Controllers.AuthenticateController.Login(ResurantApiCore6.Models.Dtos.LoginModel)">
+            <summary>
+            سرویس ورود جهت اعمال اعتبار سنجی به کاربر
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.AuthenticateController.Register(ResurantApiCore6.Models.Dtos.RegisterModel)">
+            <summary>
+            سرویس ثبت نام جهت استفاده از سایر سرویس ها
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.AuthenticateController.RegisterAdmin(ResurantApiCore6.Models.Dtos.RegisterModel)">
+            <summary>
+            سرویس ایجاد راهبر
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
         <member name="M:Core6.Controllers.FoodController.GetList">
             <summary>
             سرویس دریافت لیست منوی غذا

@@ -1,9 +1,12 @@
 ﻿using Core6.Models.Entites;
 using Core6.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ResurantApiCore6.Models.Dtos;
 
 namespace Core6.Controllers;
+
+[Authorize]
 [Route("api/[controller]/[action]")]
 [ApiController]
 public class ResturantController : Controller
@@ -58,12 +61,13 @@ public class ResturantController : Controller
         try
         {
 
-            var data = await _resturant.Insert(new Resturants(){
-                ID=0,
-                TITLE=resturant.TITLE,
-                PHONE=resturant.PHONE,
-                MOBILE=resturant.MOBILE,
-                ADDRESS=resturant.ADDRESS,
+            var data = await _resturant.Insert(new Resturants()
+            {
+                ID = 0,
+                TITLE = resturant.TITLE,
+                PHONE = resturant.PHONE,
+                MOBILE = resturant.MOBILE,
+                ADDRESS = resturant.ADDRESS,
                 DESCRIPTIONS = resturant.DESCRIPTIONS
             });
             _result.IsSucess = true;
@@ -94,12 +98,13 @@ public class ResturantController : Controller
     {
         try
         {
-            var data = await _resturant.Update(new Resturants(){
-                ID=resturant.ID,
-                TITLE=resturant.TITLE,
-                PHONE=resturant.PHONE,
-                MOBILE=resturant.MOBILE,
-                ADDRESS=resturant.ADDRESS,
+            var data = await _resturant.Update(new Resturants()
+            {
+                ID = resturant.ID,
+                TITLE = resturant.TITLE,
+                PHONE = resturant.PHONE,
+                MOBILE = resturant.MOBILE,
+                ADDRESS = resturant.ADDRESS,
                 DESCRIPTIONS = resturant.DESCRIPTIONS
             });
             _result.IsSucess = true;
