@@ -33,7 +33,7 @@ namespace Core6.Models.Services {
         }
 
         public ResturantListDtos GetByID (long resturantId) {
-            var data = _context.Resturants.SingleOrDefault(item => item.ID == resturantId);
+            var data = _context.Resturants.SingleOrDefault (item => item.ID == resturantId);
             return new ResturantListDtos () {
                 ID = data.ID,
                     TITLE = data.TITLE,

@@ -1,3 +1,19 @@
+@font-face {
+  font-family: iransans;
+  src: url("../fonts/iransans/IRANSans-web.eot");
+  src: url("../fonts/iransans/IRANSans-web.eot?#iefix") format("embedded-opentype"), url("../fonts/iransans/IRANSans-web.woff2") format("woff2"), url("../fonts/iransans/IRANSans-web.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --primary-font-family: iransans, tahoma, helvetica, clean, sans-serif;
+}
+
+* {
+  font-family: var(--primary-font-family) !important;
+}
+
 html {
   font-size: 14px;
 }

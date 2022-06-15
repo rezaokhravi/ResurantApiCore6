@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Core6</name>
+    </assembly>
+    <members>
+        <member name="M:Core6.Controllers.FoodController.GetList">
+            <summary>
+            سرویس دریافت لیست منوی غذا
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.FoodController.Insert(ResurantApiCore6.Models.Dtos.FoodsInsertModel)">
+            <summary>
+            سرویس ایجاد یک غذا بر اساس مدل وروردی
+            </summary>
+            <param name="food"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.FoodController.Update(ResurantApiCore6.Models.Dtos.FoodsUpdateModel)">
+            <summary>
+            سرویس آپدیت یک غذا براساس مدل ورودی
+            </summary>
+            <param name="food"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.FoodController.DeleteById(System.Int32)">
+            <summary>
+            سرویس حذف اطلاعات  یک غذا با استفاده از شناسه غذا
+            </summary>
+            <param name="food_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.FoodController.GetById(System.Int64)">
+            <summary>
+             سرویس دریافت غذا براساس شناسه غذا
+            </summary>
+            <param name="food_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.ResturantController.GetList">
+            <summary>
+            سرویس دریافت لیست رستوان
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.ResturantController.Insert(ResurantApiCore6.Models.Dtos.ResturantsInsertModel)">
+            <summary>
+            سرویس ایجاد یک رستوران بر اساس مدل وروردی 
+            </summary>
+            <param name="resturant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.ResturantController.Update(ResurantApiCore6.Models.Dtos.ResturantsUpdateModel)">
+            <summary>
+            سرویس آپدیت یک رستون براساس مدل ورودی
+            </summary>
+            <param name="resturant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.ResturantController.DeleteById(System.Int64)">
+            <summary>
+             سرویس حذف اطلاعات  یک رستوران با استفاده از شناسه رستوران
+            </summary>
+            <param name="resturant_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Core6.Controllers.ResturantController.GetById(System.Int64)">
+            <summary>
+            سرویس دریافت رستوران براساس شناسه رستوران
+            </summary>
+            <param name="resturant_id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -120,3 +120,11 @@ D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.dll
 D:\projects\ResurantApiCore6\obj\Debug\net6.0\ref\Core6.dll
 D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.pdb
 D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.genruntimeconfig.cache
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.MvcApplicationPartsAssemblyInfo.cs
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Core6.xml
+D:\projects\ResurantApiCore6\obj\Debug\net6.0\Core6.xml
+D:\projects\ResurantApiCore6\bin\Debug\net6.0\Newtonsoft.Json.dll
