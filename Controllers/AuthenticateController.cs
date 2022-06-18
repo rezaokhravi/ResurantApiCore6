@@ -68,7 +68,7 @@ public class AuthenticateController : Controller
             _result.Error = null;
             _result.Data = new
             {
-                token = new JwtSecurityTokenHandler().WriteToken(token),
+                token = $"bearer {new JwtSecurityTokenHandler().WriteToken(token)}" ,
                 expiration = token.ValidTo
             };
 
@@ -119,6 +119,15 @@ public class AuthenticateController : Controller
             return Ok(_result);
         }
 
+         if (!await _roleManager.RoleExistsAsync(UserRoles.User))
+            await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+
+        if (await _roleManager.RoleExistsAsync(UserRoles.User))
+        {
+            await _userManager.AddToRoleAsync(user, UserRoles.User);
+        }
+
         _result.IsSucess = true;
         _result.StatusCode = 200;
         _result.Message = "ثبت نام با موفقیت انجام شد";
@@ -166,18 +175,12 @@ public class AuthenticateController : Controller
 
         if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
             await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-        if (!await _roleManager.RoleExistsAsync(UserRoles.User))
-            await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
         if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
         {
             await _userManager.AddToRoleAsync(user, UserRoles.Admin);
         }
-        if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
-        {
-            await _userManager.AddToRoleAsync(user, UserRoles.User);
-        }
-
+        
         _result.IsSucess = true;
         _result.StatusCode = 200;
         _result.Message = "ثبت نام با موفقیت انجام شد";

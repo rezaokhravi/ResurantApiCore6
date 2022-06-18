@@ -27,6 +27,7 @@ public class FoodController : Controller
     /// </summary>
     /// <returns></returns>
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetList()
     {
         try
