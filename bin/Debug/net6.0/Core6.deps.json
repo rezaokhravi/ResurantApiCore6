@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Core6/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.90",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.5",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
@@ -17,6 +18,14 @@
         },
         "runtime": {
           "Core6.dll": {}
+        }
+      },
+      "Dapper/2.0.90": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.90.36046"
+          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -566,6 +575,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapper/2.0.90": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e4YjOLJptnpwHIbP8HxjaYf7So9lhUC43rvvGMEkH4Q4CiVlm4rOxYDo0HyuHlMQKj0U5Ob/nCMm52TUhTaZQg==",
+      "path": "dapper/2.0.90",
+      "hashPath": "dapper.2.0.90.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

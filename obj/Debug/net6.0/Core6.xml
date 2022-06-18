@@ -93,5 +93,11 @@
             <param name="resturant_id"></param>
             <returns></returns>
         </member>
+        <member name="M:Core6.Controllers.StackOverflowController.GetListPostByUserId(System.Int32)">
+            <summary>
+            سرویس دریافت لیست پست های یک کاربر
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

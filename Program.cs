@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ResurantApiCore6.Models.Auth;
 using ResurantApiCore6.Models.Contexts;
+using ResurantApiCore6.Models.Services;
 
 internal class Program
 {
@@ -19,55 +20,59 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        // Database Contexts
         builder.Services.AddScoped<DBContext>();
+
+
         builder.Services.AddScoped<ResponseResult>();
         builder.Services.AddScoped<IResturant, ResturantService>();
         builder.Services.AddScoped<IFood, FoodService>();
+        builder.Services.AddScoped<IStackOverflow, StackOverflowService>();
         builder.Services.AddTransient<IdentityErrorDescriber, CustomIdentityErrorDescriber>();
 
         builder.Services.AddSwaggerGen(options =>
         {
-           options.SwaggerDoc("v1", new OpenApiInfo
+            options.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Title = "Restaurant API",
+                Version = "v1",
+                Description = "An API to Show Restaurant an Foods",
+                TermsOfService = new Uri("http://behesht724.ir/"),
+                Contact = new OpenApiContact
                 {
-                    Title = "Restaurant API",
-                    Version = "v1",
-                    Description = "An API to Show Restaurant an Foods",
-                    TermsOfService = new Uri("http://behesht724.ir/"),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Navid Lotfian",
-                        Email = "lotfian70@gmail.com",
-                        Url = new Uri("https://navidlotfian.ir"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Mehrasaam CO",
-                        Url = new Uri("http://behesht724.ir/"),
-                    }
-                });
-
-                options.CustomSchemaIds(t => t.FullName);
-                options.ResolveConflictingActions(c => c.First());
-
-
-                //Include 'SecurityScheme' to use JWT Authentication
-                var jwtSecurityScheme = new OpenApiSecurityScheme
+                    Name = "Navid Lotfian",
+                    Email = "lotfian70@gmail.com",
+                    Url = new Uri("https://navidlotfian.ir"),
+                },
+                License = new OpenApiLicense
                 {
-                    Scheme = "bearer",
-                    BearerFormat = "JWT",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
+                    Name = "Mehrasaam CO",
+                    Url = new Uri("http://behesht724.ir/"),
+                }
+            });
 
-                    Reference = new OpenApiReference
-                    {
-                        Id = JwtBearerDefaults.AuthenticationScheme,
-                        Type = ReferenceType.SecurityScheme
-                    }
-                };
-                options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement { { jwtSecurityScheme, Array.Empty<string>() } });
+            options.CustomSchemaIds(t => t.FullName);
+            options.ResolveConflictingActions(c => c.First());
+
+
+            //Include 'SecurityScheme' to use JWT Authentication
+            var jwtSecurityScheme = new OpenApiSecurityScheme
+            {
+                Scheme = "bearer",
+                BearerFormat = "JWT",
+                Name = "Authorization",
+                In = ParameterLocation.Header,
+                Type = SecuritySchemeType.ApiKey,
+                Description = "Put **_ONLY_** your JWT Bearer token on textbox below!",
+
+                Reference = new OpenApiReference
+                {
+                    Id = JwtBearerDefaults.AuthenticationScheme,
+                    Type = ReferenceType.SecurityScheme
+                }
+            };
+            options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+            options.AddSecurityRequirement(new OpenApiSecurityRequirement { { jwtSecurityScheme, Array.Empty<string>() } });
 
             // using System.Reflection;
             var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
