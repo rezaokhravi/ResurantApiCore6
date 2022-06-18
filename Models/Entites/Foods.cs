@@ -6,6 +6,7 @@ namespace Core6.Models.Entites {
 
     [Table ("FOODS")]
     public class Foods {
+        
         [Key]
         [Column (Order = 1)]
         [DatabaseGenerated (DatabaseGeneratedOption.Identity)]

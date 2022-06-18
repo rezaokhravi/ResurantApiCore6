@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using AutoMapper;
+using Core6.Models.Dtos;
 using Core6.Models.Entites;
 using Core6.Models.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -15,11 +17,14 @@ public class FoodController : Controller
     private readonly ILogger<ResturantController> _logger;
     private readonly IFood _food;
     private readonly ResponseResult _result;
-    public FoodController(ILogger<ResturantController> logger, IFood food, ResponseResult result)
+    private readonly IMapper _mapper; 
+
+    public FoodController(ILogger<ResturantController> logger, IFood food, ResponseResult result,IMapper mapper)
     {
         _logger = logger;
         _food = food;
         _result = result;
+        _mapper=mapper;
     }
 
     /// <summary>
@@ -37,7 +42,7 @@ public class FoodController : Controller
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
             _result.Error = null;
-            _result.Data = data;
+            _result.Data = _mapper.Map<List<FoodListDtos>>(data) ;
             return Ok(_result);
         }
         catch (Exception ex)
@@ -62,18 +67,12 @@ public class FoodController : Controller
     {
         try
         {
-            var data = await _food.Insert(new Foods(){
-                ID=0,
-                PRICE=food.PRICE,
-                TITLE=food.TITLE,
-                DESCRIPTIONS=food.DESCRIPTIONS,
-                RES_ID = food.RES_ID
-            });
+            var data = await _food.Insert(_mapper.Map<Foods>(food));
             _result.IsSucess = true;
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
             _result.Error = null;
-            _result.Data = data;
+            _result.Data =  _mapper.Map<FoodListDtos>(data);
             return Ok(_result);
         }
         catch (Exception ex)
@@ -97,18 +96,12 @@ public class FoodController : Controller
     {
         try
         {
-            var data = await _food.Update(new Foods(){
-                ID=food.ID,
-                TITLE=food.TITLE,
-                PRICE=food.PRICE,
-                DESCRIPTIONS=food.DESCRIPTIONS,
-                RES_ID = food.RES_ID
-            });
+            var data = await _food.Update(_mapper.Map<Foods>(food));
             _result.IsSucess = true;
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
             _result.Error = null;
-            _result.Data = data;
+            _result.Data =  _mapper.Map<FoodListDtos>(data);
             return Ok(_result);
         }
         catch (Exception ex)
@@ -137,7 +130,7 @@ public class FoodController : Controller
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
             _result.Error = null;
-            _result.Data = data;
+            _result.Data =  _mapper.Map<FoodListDtos>(data);
             return Ok(_result);
         }
         catch (Exception ex)
@@ -166,7 +159,7 @@ public class FoodController : Controller
             _result.StatusCode = 200;
             _result.Message = "عملیات با موفقیت انجام شد";
             _result.Error = null;
-            _result.Data = data;
+            _result.Data =  _mapper.Map<FoodListDtos>(data);
             return Ok(_result);
         }
         catch (Exception ex)

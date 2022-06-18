@@ -15,22 +15,14 @@ namespace Core6.Models.Services
             _context = context;
             _resturant = resturant;
         }
-        public async Task<FoodListDtos> Delete(Foods food)
+        public async Task<Foods> Delete(Foods food)
         {
             _context.Foods.Remove(food);
             await _context.SaveChangesAsync();
-            return new FoodListDtos()
-            {
-                ID = food.ID,
-                TITLE = food.TITLE,
-                PRICE = food.PRICE,
-                DESCRIPTIONS = food.DESCRIPTIONS,
-                RES_ID = food.ID,
-                RES_TITLE = food.Resturant.TITLE
-            };
+            return food;
         }
 
-        public async Task<FoodListDtos> DeleteById(long foodId)
+        public async Task<Foods> DeleteById(long foodId)
         {
             return await Delete(GetByIDPrivate(foodId));
         }
@@ -40,66 +32,33 @@ namespace Core6.Models.Services
             return _context.Foods.SingleOrDefault(item => item.ID == foodId);
         }
 
-        public FoodListDtos GetByID(long foodId)
+        public Foods GetByID(long foodId)
         {
-            var data = _context.Foods.SingleOrDefault(item => item.ID == foodId);
-            var resturant = _resturant.GetByID(data.RES_ID);
-            return new FoodListDtos()
-            {
-                ID = data.ID,
-                TITLE = data.TITLE,
-                PRICE = data.PRICE,
-                DESCRIPTIONS = data.DESCRIPTIONS,
-                RES_ID = resturant.ID,
-                RES_TITLE = resturant.TITLE
-            };
+            var data = _context.Foods.Include(f=>f.Resturant).SingleOrDefault(item => item.ID == foodId);
+            return data;
         }
 
-        public async Task<List<FoodListDtos>> GetList()
+        public async Task<List<Foods>> GetList()
         {
-            return await _context.Foods.Select(data => new FoodListDtos()
-            {
-                ID = data.ID,
-                TITLE = data.TITLE,
-                PRICE = data.PRICE,
-                DESCRIPTIONS = data.DESCRIPTIONS,
-                RES_ID = data.RES_ID,
-                RES_TITLE = data.Resturant.TITLE
-            }).ToListAsync();
+            return await _context.Foods
+            .Include(f=>f.Resturant)
+            .ToListAsync();
         }
 
 
 
-        public async Task<FoodListDtos> Insert(Foods food)
+        public async Task<Foods> Insert(Foods food)
         {
             var data = _context.Foods.Add(food);
             await _context.SaveChangesAsync();
-            var resturant = _resturant.GetByID(food.RES_ID);
-            return new FoodListDtos()
-            {
-                ID = data.Entity.ID,
-                TITLE = data.Entity.TITLE,
-                PRICE = data.Entity.PRICE,
-                DESCRIPTIONS = data.Entity.DESCRIPTIONS,
-                RES_ID = resturant.ID,
-                RES_TITLE = resturant.TITLE
-            };
+            return GetByID(data.Entity.ID);
         }
 
-        public async Task<FoodListDtos> Update(Foods food)
+        public async Task<Foods> Update(Foods food)
         {
             var data = _context.Foods.Update(food);
             await _context.SaveChangesAsync();
-            var resturant = _resturant.GetByID(food.RES_ID);
-            return new FoodListDtos()
-            {
-                ID = data.Entity.ID,
-                TITLE = data.Entity.TITLE,
-                PRICE = data.Entity.PRICE,
-                DESCRIPTIONS = data.Entity.DESCRIPTIONS,
-                RES_ID = resturant.ID,
-                RES_TITLE = resturant.TITLE
-            };
+            return GetByID(data.Entity.ID);
         }
     }
 }
